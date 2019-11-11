@@ -1,5 +1,6 @@
 # Web Wallet Auto Test 
-Trias Web Wallet is an open-source, easy-to-use and secure client-side wallet for easily & securely interacting with the Ethereum and Trias network. See: https://wallet.trias.one/
+Trias Web Wallet is an open-source, easy-to-use and secure client-side wallet for easily & securely interacting with the Ethereum and Trias network. 
+See: https://wallet.trias.one/
 ![Image Text](img/homepage.png)
 
 
@@ -49,7 +50,7 @@ $ cp HTMLTestReportCN.py  /Library/Frameworks/Python.framework/Versions/3.8/lib
 Start pycharm from the desktop, and click "file" - > "open" to open the wallet folder
 ![Image Text](img/open_the_file_with_pycharm.png)
 
-## **set TRY account amount**
+## **Set TRY account amount**
 After opening the wallet project, enter the config directory, and enter the config.ini file,then set the coin and hidden_coin
 ![Image Text](img/set_coin_you_want.png)
 
