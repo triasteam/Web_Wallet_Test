@@ -48,6 +48,10 @@ $ cp HTMLTestReportCN.py  /Library/Frameworks/Python.framework/Versions/3.8/lib
 Start pycharm from the desktop, and click "file" - > "open" to open the wallet folder
 ![Image Text](screenshots/open_the_file_with_pycharm.png)
 
+## **set TRY account amount**
+After opening the wallet project, enter the config directory, and enter the config.ini file,then set the coin and hidden_coin
+![Image Text](screenshots/set_coin_you_want.png)
+
 ## **Run script**
  After opening the wallet project, enter the process directory, and enter the walletprocess.py file
 ![Image Text](screenshots/run_the_test.png)
