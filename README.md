@@ -55,3 +55,4 @@ Right click to run ‘pytest in web_wallet_process.py’
 
 ## **Test report**
 You can view it in the ‘report’ directory, and use the browser to open and view the ‘*.htlm’ file
+![Image text](screenshots/htmltest_report.png)
