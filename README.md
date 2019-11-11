@@ -6,7 +6,7 @@ Trias Web Wallet is an open-source, easy-to-use and secure client-side wallet fo
 
   - ubuntu 14+
   - python v3.6.8+
-  - Firefox v69.0.1
+  - Chrome v78.0.3904.70
   - geckodriver v0.24.0 
   - pycharm 
   
