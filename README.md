@@ -1,5 +1,6 @@
 # Web Wallet Auto Test 
 Trias Web Wallet is an open-source, easy-to-use and secure client-side wallet for easily & securely interacting with the Ethereum and Trias network. See: https://wallet.trias.one/
+![Image Text](screenshots/homepage.png)
 
 
 ## **Installation Environment**
