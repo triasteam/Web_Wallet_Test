@@ -46,13 +46,17 @@ $ cp HTMLTestReportCN.py  /Library/Frameworks/Python.framework/Versions/3.8/lib
 
 ## **Import wallet project**
 Start pycharm from the desktop, and click "file" - > "open" to open the wallet folder
-
+![Image Text](screenshots/open_the_file_with_pycharm.png)
 
 ## **Run script**
  After opening the wallet project, enter the process directory, and enter the walletprocess.py file
-
+![Image Text](screenshots/run_the_test.png)
 Right click to run ‘pytest in web_wallet_process.py’ 
 
-## **Test report**
+## **Test excelreport**
+You can view it in the ‘excelreport’ directory, and use the excel to open and view the ‘*.xls’ file
+![Image Text](screenshots/excel_report.png)
+
+## **Test htmlreport**
 You can view it in the ‘report’ directory, and use the browser to open and view the ‘*.htlm’ file
 ![Image Text](screenshots/htmltest_report.png)
