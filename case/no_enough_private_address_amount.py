@@ -47,9 +47,13 @@ class NoEnoughPrivateAddressAmount():
                 pass
 
         #get private address  balance
-        private_account_balance=driver.find_element_by_xpath(
-            '/html/body/div/div/main/div/div[1]/div[2]/div[2]/div[3]/ul/li/span').text
-
+        time.sleep(2)
+        for i in range(100):
+            private_account_balance=driver.find_element_by_xpath(
+                '/html/body/div/div/main/div/div[1]/div[2]/div[2]/div[3]/ul/li/span').text
+            time.sleep(2)
+            if int(private_account_balance) != 0:
+                break
         #Transaction process
         time.sleep(2)
         #Get the name and address of the transfer target account

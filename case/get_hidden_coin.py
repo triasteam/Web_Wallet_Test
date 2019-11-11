@@ -32,12 +32,11 @@ class GetHiddenCoin():
         for ele0 in element0:
             if ele0.is_displayed():
                 ele0.click()
-
+        time.sleep(3)
         '''
         creat  hidden TRY coin
         '''
         for i in range(int(hidden_coin)//100):
-            time.sleep(2)
             bs.find_element('classname<=>content-form-signup').click()
-            time.sleep(2)
+            time.sleep(1)
         driver.quit()

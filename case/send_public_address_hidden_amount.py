@@ -45,18 +45,22 @@ class SendPublicAddressHiddenAmount():
         except:
             print('This element was not found')
         #Transaction process
-        time.sleep(2)
         #Get account amount information
-        account_total_amount=driver.find_element_by_xpath(
-            '/html/body/div/div/main/div/div/div[2]/div[1]/div[2]/ul/li/span').text
-        public_address_amount = driver.find_element_by_xpath(
-            '/html/body/div/div/main/div/div/div[2]/div[2]/div[1]/ul/li/span').text
-        public_address_hideen_amount = driver.find_element_by_xpath(
-            '/html/body/div/div/main/div/div/div[2]/div[2]/div[2]/ul/li/span').text
-        private_address_amount = driver.find_element_by_xpath(
-            '/html/body/div/div/main/div/div/div[2]/div[2]/div[3]/ul/li/span').text
-        private_address_hidden_amount = driver.find_element_by_xpath(
-            '/html/body/div/div/main/div/div/div[2]/div[2]/div[4]/ul/li/span').text
+        time.sleep(2)
+        for i in range(50):
+            time.sleep(1)
+            account_total_amount=driver.find_element_by_xpath(
+                '/html/body/div/div/main/div/div/div[2]/div[1]/div[2]/ul/li/span').text
+            public_address_amount=driver.find_element_by_xpath(
+                '/html/body/div/div/main/div/div/div[2]/div[2]/div[1]/ul/li/span').text
+            public_address_hideen_amount=driver.find_element_by_xpath(
+                '/html/body/div/div/main/div/div/div[2]/div[2]/div[2]/ul/li/span').text
+            private_address_amount=driver.find_element_by_xpath(
+                '/html/body/div/div/main/div/div/div[2]/div[2]/div[3]/ul/li/span').text
+            private_address_hidden_amount=driver.find_element_by_xpath(
+                '/html/body/div/div/main/div/div/div[2]/div[2]/div[4]/ul/li/span').text
+            if int(account_total_amount) != 0:
+                break
         #Get the name and address of the transfer target account
         splits=files[len1-1].split('--')
         driver.find_element_by_xpath(
@@ -80,7 +84,7 @@ class SendPublicAddressHiddenAmount():
                                                             '/html/body/div/div/main/div/div[1]/article[2]/section/a[2]/span')))
         except:
             print('Transaction timeout')
-        time.sleep(3)
+        time.sleep(2)
         for i in range(100):
             time.sleep(2)
             #enter the homepage
@@ -103,11 +107,15 @@ class SendPublicAddressHiddenAmount():
                     '/html/body/div/div/main/div/div/article[1]/div[2]/article/div/div[3]/a').click()
             except:
                 print('This element was not found')
-            time.sleep(8)
             #get account_total_amount again
-            account_total_amount_second=driver.find_element_by_xpath(
-                '/html/body/div/div/main/div/div/div[2]/div[1]/div[2]/ul/li/span').text
-            if account_total_amount_second != account_total_amount:
+            time.sleep(2)
+            for i in range(50):
+                account_total_amount_second=driver.find_element_by_xpath(
+                    '/html/body/div/div/main/div/div/div[2]/div[1]/div[2]/ul/li/span').text
+                time.sleep(2)
+                if int(account_total_amount_second) !=0:
+                    break
+            if int(account_total_amount_second) != int(account_total_amount):
                 #Record the account amount and store it in XLS
                 public_address_amount2 = driver.find_element_by_xpath(
                     '/html/body/div/div/main/div/div/div[2]/div[2]/div[1]/ul/li/span').text
@@ -117,6 +125,9 @@ class SendPublicAddressHiddenAmount():
                     '/html/body/div/div/main/div/div/div[2]/div[2]/div[3]/ul/li/span').text
                 private_address_hidden_amount2 = driver.find_element_by_xpath(
                     '/html/body/div/div/main/div/div/div[2]/div[2]/div[4]/ul/li/span').text
+                flag=True
+                if (int(public_address_amount)+int(public_address_hideen_amount)-rand)!=(int(public_address_amount2)+int(public_address_hideen_amount2)):
+                    flag=False
                 WriteExcel().write_excel_xls_append([public_address_amount,
                                           public_address_hideen_amount,
                                           private_address_amount,
@@ -125,7 +136,8 @@ class SendPublicAddressHiddenAmount():
                                           public_address_amount2,
                                           public_address_hideen_amount2,
                                           private_address_amount2,
-                                          private_address_hidden_amount2])
+                                          private_address_hidden_amount2,
+                                          flag])
                 print('The account has been updated. Please check')
                 break
         time.sleep(5)

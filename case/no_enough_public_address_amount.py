@@ -47,8 +47,14 @@ class NoEnoughPublicAddressAmount():
                 pass
 
         #get public address  balance
-        public_account_balance=driver.find_element_by_xpath(
-            '//*[@id="app"]/div/main/div/div[1]/div[2]/div[2]/div[1]/ul/li/span').text
+        time.sleep(2)
+        for i in range(100):
+            public_account_balance = driver.find_element_by_xpath(
+                '//*[@id="app"]/div/main/div/div[1]/div[2]/div[2]/div[1]/ul/li/span').text
+            time.sleep(2)
+            if int(public_account_balance) != 0:
+                break
+
 
         #Transaction process
         time.sleep(2)

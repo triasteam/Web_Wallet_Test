@@ -19,6 +19,7 @@ class CheckViewAccountInfo():
         driver = Browser().open_browser()
         # Enter the page
         driver.get('https://wallet.trias.one/')
+        time.sleep(2)
         for i in range(100):
             #enter the homepage
             driver.find_element_by_xpath(
@@ -51,10 +52,14 @@ class CheckViewAccountInfo():
             except:
                 driver.find_element_by_xpath(
                     '/html/body/div/div/main/div/div/article[1]/div[2]/article/div/div[3]/a').click()
-            time.sleep(6)
-            # get account total balance
-            account_total_balance = driver.find_element_by_xpath('//*[@id="app"]/div/main/div/div/div[2]/div[1]/div[2]/ul/li/span').text
-            if account_total_balance == str(account_all_coins):
+            for i in range(40):
+                # get account total balance
+                time.sleep(1)
+                account_total_balance = driver.find_element_by_xpath(
+                    '//*[@id="app"]/div/main/div/div/div[2]/div[1]/div[2]/ul/li/span').text
+                if int(account_total_balance) !=0:
+                    break
+            if int(account_total_balance) == int(account_all_coins):
                 break
         time.sleep(3)
         driver.quit()

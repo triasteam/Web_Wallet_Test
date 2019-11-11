@@ -48,10 +48,15 @@ class NoEnoughPrivateAddressHiddenAmount():
                 pass
 
         #get private address  balance
-        private_address_balance=driver.find_element_by_xpath(
-            '//*[@id="app"]/div/main/div/div/div[2]/div[2]/div[3]/ul/li/span').text
-        total_account_balance = driver.find_element_by_xpath(
-            '/html/body/div/div/main/div/div/div[2]/div[1]/div[2]/ul/li/span').text
+        time.sleep(2)
+        for i in range(100):
+            private_address_balance = driver.find_element_by_xpath(
+                '//*[@id="app"]/div/main/div/div/div[2]/div[2]/div[3]/ul/li/span').text
+            total_account_balance = driver.find_element_by_xpath(
+                '/html/body/div/div/main/div/div/div[2]/div[1]/div[2]/ul/li/span').text
+            time.sleep(2)
+            if int(total_account_balance) != 0:
+                break
 
         '---------------------------------------------Transaction process-----------------------------------'
 
@@ -113,11 +118,17 @@ class NoEnoughPrivateAddressHiddenAmount():
                     '/html/body/div/div/main/div/div/article[1]/div[2]/article/div/div[3]/a').click()
             except:
                 print('This element was not found')
-            time.sleep(8)
             # get account_total_amount again
-            account_total_amount_second = driver.find_element_by_xpath(
-                '/html/body/div/div/main/div/div/div[2]/div[1]/div[2]/ul/li/span').text
-            if account_total_amount_second != total_account_balance:
+
+            time.sleep(2)
+            for i in range(100):
+                account_total_amount_second = driver.find_element_by_xpath(
+                    '/html/body/div/div/main/div/div/div[2]/div[1]/div[2]/ul/li/span').text
+                time.sleep(2)
+                if int(total_account_balance) != 0:
+                    break
+            time.sleep(1)
+            if int(account_total_amount_second) != int(total_account_balance):
                 print('The account has been updated. Please check')
                 break
         time.sleep(5)

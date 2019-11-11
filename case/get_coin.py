@@ -26,11 +26,11 @@ class GetCoin():
         w1=w.split('--')[2]
         time.sleep(10)
         driver.find_element_by_xpath('//*[@id="change_margin_1"]/input').send_keys(w1)
+        time.sleep(3)
         '''
         creat  TRY coin
         '''
         for i in range(int(coin)//100):
-            time.sleep(2)
             bs.find_element('classname<=>content-form-signup').click()
-            time.sleep(2)
+            time.sleep(1)
         driver.quit()
