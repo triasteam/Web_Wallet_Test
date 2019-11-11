@@ -1,6 +1,6 @@
 # Web Wallet Auto Test 
 Trias Web Wallet is an open-source, easy-to-use and secure client-side wallet for easily & securely interacting with the Ethereum and Trias network. See: https://wallet.trias.one/
-![Image Text](screenshots/homepage.png)
+![Image Text](img/homepage.png)
 
 
 ## **Installation Environment**
@@ -47,21 +47,21 @@ $ cp HTMLTestReportCN.py  /Library/Frameworks/Python.framework/Versions/3.8/lib
 
 ## **Import wallet project**
 Start pycharm from the desktop, and click "file" - > "open" to open the wallet folder
-![Image Text](screenshots/open_the_file_with_pycharm.png)
+![Image Text](img/open_the_file_with_pycharm.png)
 
 ## **set TRY account amount**
 After opening the wallet project, enter the config directory, and enter the config.ini file,then set the coin and hidden_coin
-![Image Text](screenshots/set_coin_you_want.png)
+![Image Text](img/set_coin_you_want.png)
 
 ## **Run script**
  After opening the wallet project, enter the process directory, and enter the walletprocess.py file
-![Image Text](screenshots/run_the_test.png)
+![Image Text](img/run_the_test.png)
 Right click to run ‘pytest in web_wallet_process.py’ 
 
 ## **Test excelreport**
 You can view it in the ‘excelreport’ directory, and use the excel to open and view the ‘*.xls’ file
-![Image Text](screenshots/excel_report.png)
+![Image Text](img/excel_report.png)
 
 ## **Test htmlreport**
 You can view it in the ‘report’ directory, and use the browser to open and view the ‘*.htlm’ file
-![Image Text](screenshots/htmltest_report.png)
+![Image Text](img/htmltest_report.png)
