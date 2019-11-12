@@ -10,7 +10,7 @@ from common.logger import Logger
 
 logger = Logger().getlog()
 class BasePage(object):
-    "Define a page base class that all pages inherit and encapsulate common page manipulation methods into this class."
+    '''Define a page base class that all pages inherit and encapsulate common page manipulation methods into this class.'''
     def __init__(self, driver):
         self.driver = driver
 
@@ -115,9 +115,9 @@ class BasePage(object):
         # e1 = self.find_element(selector)
         ActionChains(self.driver).click(element).perform()
 
-    # Screenshot, saved in the root directory screenshots
+    # Screenshot, saved in the root directory img
     def take_screenshot(self):
-        screen_dir = os.path.dirname(os.path.abspath('../..')) + '/screenshots/'
+        screen_dir = os.path.dirname(os.path.abspath('../..')) + '/img/'
         rq = time.strftime('%Y%m%d%H%M%S', time.localtime(time.time()))
         screen_name = screen_dir + rq + '.png'
         try:

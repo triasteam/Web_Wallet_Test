@@ -2,7 +2,6 @@
 import configparser
 import os
 import codecs
-
 dir = os.path.abspath('..')
 url=dir + "\\config\\config.ini"
 class GetConf():

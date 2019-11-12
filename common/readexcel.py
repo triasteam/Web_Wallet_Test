@@ -3,7 +3,7 @@ import xlrd
 
 class ReadExcle(object):
     '''
-    classdoc
+    read the excel
     '''
 
     def __init__(self, file, tag='True'):

@@ -1,9 +1,6 @@
 #coding=utf-8
 import logging
 import time
-
-
-
 class Logger(object):
 
     def __init__(self):

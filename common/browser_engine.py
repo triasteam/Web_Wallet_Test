@@ -2,9 +2,7 @@
 from selenium import webdriver
 import configparser
 import os
-
 class Browser(object):
-
     # Open the browser
     def open_browser(self):
         config = configparser.ConfigParser()

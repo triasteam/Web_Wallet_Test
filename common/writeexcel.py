@@ -6,6 +6,9 @@ import os
 import xlrd
 from xlutils.copy import copy
 class WriteExcel():
+    '''
+    write to excel
+    '''
     def creat_excel(self):
         '''
         create xls file
