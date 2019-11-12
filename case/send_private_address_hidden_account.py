@@ -9,10 +9,10 @@ import random
 import os
 import time
 from common.writeexcel import WriteExcel
-'''
-This type of transfer hides money for private addresses
-'''
 class SendPrivateAddressHiddenAmount():
+    '''
+    This type of transfer hides money for private addresses
+    '''
     def send_private_address_hidden_amount(self):
         #Send TRY login process
         driver=Browser().open_browser()

@@ -9,10 +9,10 @@ import random
 import os
 import time
 from common.writeexcel import WriteExcel
-'''
-This class is the public-address transfer balance
-'''
 class SendPublicAddressAmount():
+    '''
+    This class is the public-address transfer balance
+    '''
     def send_public_address_amount(self):
         #send  TRY login process
         driver=Browser().open_browser()

@@ -5,11 +5,13 @@ from common.getfilename import GetFileName
 from common.getconf import GetConf
 import time
 import os
-'''
-the class is for get TRY coin
-'''
+
 class GetCoin():
-    def getcoin(self):
+    '''
+    the class is for get TRY coin
+    '''
+    @staticmethod
+    def getcoin():
         #get config TRY coins
         coin=GetConf().get_coins('theCoins','coin')
 

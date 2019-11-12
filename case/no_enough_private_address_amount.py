@@ -8,10 +8,10 @@ from common.getfilename import GetFileName
 import random
 import os
 import time
-'''
-This class is the private-address transfer balance when have no ennough amount
-'''
 class NoEnoughPrivateAddressAmount():
+    '''
+    This class is the private-address transfer balance when have no ennough amount
+    '''
     def no_enough_private_address_amount(self):
         #send  TRY login process
         driver=Browser().open_browser()

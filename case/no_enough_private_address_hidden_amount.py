@@ -7,10 +7,10 @@ from selenium.webdriver.common.keys import Keys
 from common.getfilename import GetFileName
 import os
 import time
-'''
-This class is the private-address-hidden-amount transfer balance when have no ennough amount
-'''
 class NoEnoughPrivateAddressHiddenAmount():
+    '''
+    This class is the private-address-hidden-amount transfer balance when have no ennough amount
+    '''
     def no_enough_private_address_hidden_amount(self):
         '---------------------Log in and check the amount--------------------------------------------'
 

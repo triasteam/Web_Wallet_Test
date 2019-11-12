@@ -1,4 +1,4 @@
- #coding=utf-8
+#coding=utf-8
 from common.browser_engine import Browser
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
@@ -9,7 +9,11 @@ from common.getconf import GetConf
 import os
 import time
 class CheckViewAccountInfo():
-     def check_view_account_info(self):
+     '''
+     This class is used to check if the user's amount is as expected
+     '''
+     @staticmethod
+     def check_view_account_info():
         # getconfig coin and hidden coin
         coin=GetConf().get_coins('theCoins','coin')
         hidden_coin=GetConf().get_coins('theCoins','hidden_coin')

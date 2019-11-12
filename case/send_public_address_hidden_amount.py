@@ -9,10 +9,10 @@ import random
 import os
 import time
 from common.writeexcel import WriteExcel
-'''
-This class is public-address hidden amount transfer
-'''
 class SendPublicAddressHiddenAmount():
+    '''
+    This class is public-address hidden amount transfer
+    '''
     def send_public_address_hidden_amount(self):
         driver=Browser().open_browser()
         #Enter the page

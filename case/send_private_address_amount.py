@@ -9,10 +9,10 @@ import random
 import os
 import time
 from common.writeexcel import WriteExcel
-'''
-This type is private address transfer
-'''
 class SendPrivateAddressAmount():
+    '''
+    This type is private address transfer
+    '''
     def send_private_address_amount(self):
         #The login process for send TRY
         driver=Browser().open_browser()

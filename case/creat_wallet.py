@@ -2,11 +2,12 @@
 from common.browser_engine import Browser
 import time
 import os
-'''
-the class is for creat wallet
-'''
 class CreatWallet():
-    def creat_wallet(self):
+    '''
+    the class is for creat wallet
+    '''
+    @staticmethod
+    def creat_wallet():
         driver=Browser().open_browser()
         #Enter the homepage
         driver.get('https://wallet.trias.one/')
@@ -25,6 +26,3 @@ class CreatWallet():
         driver.find_element_by_xpath('/html/body/div/div/main/div/div/article[2]/section/p/a').click()
         time.sleep(3)
         driver.quit()
-
-if __name__ == '__main__':
-    CreatWallet().creat_wallet()
