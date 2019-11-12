@@ -11,6 +11,9 @@ from case.check_view_account_info import CheckViewAccountInfo
 from common.writeexcel import WriteExcel
 import time,os,HTMLTestReportCN
 class WebWalletProcess(unittest.TestCase):
+    '''
+    Go through the trading process
+    '''
     def setUp(self):
         pass
     def test_0creat_wallet(self):

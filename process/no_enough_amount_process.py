@@ -10,6 +10,9 @@ from case.no_enough_private_address_amount import NoEnoughPrivateAddressAmount
 from case.check_view_account_info import CheckViewAccountInfo
 import time,os,HTMLTestReportCN
 class WebWalletProcess(unittest.TestCase):
+    '''
+    The process of insufficient balance
+    '''
     def setUp(self):
         pass
     def test_0creat_wallet(self):
