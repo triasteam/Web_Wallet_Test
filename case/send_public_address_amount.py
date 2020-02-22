@@ -1,4 +1,4 @@
-#coding=utf-8
+# coding=utf-8
 from common.browser_engine import Browser
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
@@ -9,45 +9,51 @@ import random
 import os
 import time
 from common.writeexcel import WriteExcel
-class SendPublicAddressAmount():
-    '''
-    This class is the public-address transfer balance
-    '''
-    def send_public_address_amount(self):
-        #send  TRY login process
-        driver=Browser().open_browser()
-        #Enter the page
+'''
+@author
+@desc This class is the public-address transfer balance
+@date 2020/2/22
+'''
+
+
+class SendPublicAddressAmount:
+    @staticmethod
+    def send_public_address_amount():
+        # send  TRY login process
+        driver = Browser().open_browser()
+        # Enter the page
         driver.get('https://wallet.trias.one/')
         driver.find_element_by_xpath('/html/body/div/div/main/div/a[2]/div[1]/h2').click()
-        #Gets the file name under the downloadfile folder
-        dir = os.path.abspath('..')
-        url = dir + "\\downloadfile\\"
-        files=GetFileName().getfilename(url)
+        # Gets the file name under the downloadfile folder
+        mydir = os.path.abspath('..')
+        url = mydir + "\\downloadfile\\"
+        files = GetFileName().getfilename(url)
         # Calculate folder length
         len1 = len(os.listdir(url))
         v1 = url + files[len1 - 2]
 
         wait = WebDriverWait(driver, 60)
-        wait.until(EC.presence_of_all_elements_located((By.XPATH,'//*[@id="fselector"]')))
-        #Upload a file
+        wait.until(EC.presence_of_all_elements_located((By.XPATH, '//*[@id="fselector"]')))
+        # Upload a file
         driver.find_element_by_xpath('//*[@id="fselector"]').send_keys(v1)
         driver.implicitly_wait(5)
-        #Enter the password
+        # Enter the password
         driver.find_element_by_xpath(
             '//*[@id="app"]/div/main/div/div/article[1]/div[2]/article/div/div[2]/input').send_keys(123456789)
         wait.until(EC.element_to_be_clickable((By.XPATH,'//*[contains(text(),"UNLOCK")]')))
         driver.find_element_by_xpath(
             '//*[@id="app"]/div/main/div/div/article[1]/div[2]/article/div/div[2]/input').send_keys(Keys.TAB)
-        #login
+        # login
         time.sleep(9)
         for i in range(2):
             try:
                 driver.find_element_by_xpath(
                     '/html/body/div/div/main/div/div/article[1]/div[2]/article/div/div[3]/a').click()
-            except:
+            except FileNotFoundError as e:
+                print(e)
                 pass
-        #Transaction process
-        #Get account amount information
+        # Transaction process
+        # Get account amount information
         time.sleep(2)
         for i in range(50):
             time.sleep(1)
@@ -64,15 +70,15 @@ class SendPublicAddressAmount():
             if int(account_total_amount) != 0:
                 break
 
-        #Get the name and address of the transfer target account
-        splits=files[len1-1].split('--')
+        # Get the name and address of the transfer target account
+        splits = files[len1-1].split('--')
         driver.find_element_by_xpath(
             '/html/body/div/div/main/div/div/div[3]/article/article[1]/div[1]/div[1]/input').send_keys(splits[2])
-        #Random transfer amount
+        # Random transfer amount
         rand=random.randint(1,150)
         driver.find_element_by_xpath(
             '/html/body/div/div/main/div/div/div[3]/article/article[1]/section/div[2]/div/input').send_keys(rand)
-        #Click the trade button
+        # Click the trade button
         driver.find_element_by_xpath(
             '/html/body/div/div/main/div/div/div[3]/article/article[1]/div[2]/div/a').click()
         time.sleep(3)
@@ -81,28 +87,28 @@ class SendPublicAddressAmount():
         time.sleep(2)
         for i in range(100):
             time.sleep(2)
-            #enter the homepage
+            # enter the homepage
             driver.find_element_by_xpath('/html/body/div/div/div[2]/div[2]/div/ul/li[1]/a/span').click()
-            #Check view account info
+            # Check view account info
             driver.find_element_by_xpath('/html/body/div/div/div[2]/div[2]/div/ul/li[4]/a/span').click()
-            #Upload a file
+            # Upload a file
             driver.find_element_by_xpath('//*[@id="fselector"]').send_keys(v1)
             driver.implicitly_wait(5)
-            #Enter the password
+            # Enter the password
             driver.find_element_by_xpath(
                 '//*[@id="app"]/div/main/div/div/article[1]/div[2]/article/div/div[2]/input').send_keys(123456789)
             wait.until(EC.element_to_be_clickable((By.XPATH,
                                                    '//*[contains(text(),"UNLOCK")]')))
             driver.find_element_by_xpath(
                 '//*[@id="app"]/div/main/div/div/article[1]/div[2]/article/div/div[2]/input').send_keys(Keys.TAB)
-            #login
+            # login
             time.sleep(8)
             try:
                 driver.find_element_by_xpath(
                     '/html/body/div/div/main/div/div/article[1]/div[2]/article/div/div[3]/a').click()
-            except:
-                print('This element was not found')
-            #Get account_total_amount again
+            except FileNotFoundError as e:
+                print(e)
+            # Get account_total_amount again
             time.sleep(2)
             for i in range(50):
                 account_total_amount_second = driver.find_element_by_xpath(
@@ -111,7 +117,7 @@ class SendPublicAddressAmount():
                 if int(account_total_amount_second) != 0:
                     break
             if int(account_total_amount_second) != int(account_total_amount):
-                #Record the account amount and store it in excel
+                # Record the account amount and store it in excel
                 public_address_amount2 = driver.find_element_by_xpath(
                     '/html/body/div/div/main/div/div/div[2]/div[2]/div[1]/ul/li/span').text
                 public_address_hideen_amount2 = driver.find_element_by_xpath(
@@ -121,19 +127,19 @@ class SendPublicAddressAmount():
                 private_address_hidden_amount2 = driver.find_element_by_xpath(
                     '/html/body/div/div/main/div/div/div[2]/div[2]/div[4]/ul/li/span').text
                 flag=True
-                if (int(public_address_amount)+int(public_address_hideen_amount)-rand)!=(int(public_address_amount2)+int(public_address_hideen_amount2)):
-                    flag=False
+                if (int(public_address_amount)+int(public_address_hideen_amount)-rand) != (int(public_address_amount2)+int(public_address_hideen_amount2)):
+                    flag = False
                 # The information is stored in excel files
                 WriteExcel().write_excel_xls_append([public_address_amount,
-                                          public_address_hideen_amount,
-                                          private_address_amount,
-                                          private_address_hidden_amount,
-                                          'send public adress amount: '+str(rand)+'TRY',
-                                          public_address_amount2,
-                                          public_address_hideen_amount2,
-                                          private_address_amount2,
-                                          private_address_hidden_amount2,
-                                          flag])
+                                                     public_address_hideen_amount,
+                                                     private_address_amount,
+                                                     private_address_hidden_amount,
+                                                     'send public address amount: ' + str(rand)+'TRY',
+                                                     public_address_amount2,
+                                                     public_address_hideen_amount2,
+                                                     private_address_amount2,
+                                                     private_address_hidden_amount2,
+                                                     flag])
                 print('he account has been updated. Please check')
                 break
 

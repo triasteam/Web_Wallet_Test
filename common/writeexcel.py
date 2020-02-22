@@ -1,18 +1,18 @@
-#coding=utf-8
+# coding=utf-8
 from common.getfilename import GetFileName
 import time
 import xlwt
 import os
 import xlrd
 from xlutils.copy import copy
-class WriteExcel():
-    '''
-    write to excel
-    '''
+
+'''
+write to excel
+'''
+
+
+class WriteExcel(object):
     def creat_excel(self):
-        '''
-        create xls file
-        '''
         rq = time.strftime('%Y%m%d%H%M', time.localtime(time.time()))
         exceldir = '../excelreport/'
         excelname = exceldir+ rq + '.xls'
@@ -28,14 +28,14 @@ class WriteExcel():
         :param data:the rows data
         :return:
         '''
-        #get downloadfile all file names
+        # get downloadfile all file names
         dir = os.path.abspath('..')
         url = dir + "\\excelreport\\"
         files=GetFileName().getfilename(url)
         # calculate the length of the file
         len1 = len(os.listdir(url))
         out_path = url + files[len1 - 1]
-        #write to xls
+        # write to xls
         wbk = xlwt.Workbook(encoding='utf-8')
         sheet = wbk.add_sheet('Sheet1', cell_overwrite_ok=True)
         for i in range(len(data)):

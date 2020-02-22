@@ -1,31 +1,36 @@
-#coding=utf-8
+# coding=utf-8
 from common.browser_engine import Browser
 from common.basepage import BasePage
 from common.getfilename import GetFileName
 from common.getconf import GetConf
 import time
 import os
-class GetHiddenCoin():
-    '''
-    the class is for creat hidden TRY coin
-    '''
+
+'''
+@author
+@desc the class is for creat hidden TRY coin
+@date 2020/2/22
+'''
+
+
+class GetHiddenCoin:
     @staticmethod
     def get_hidden_coin():
-        #get config TRY coins
-        hidden_coin=GetConf().get_coins('theCoins','hidden_coin')
+        # get config TRY coins
+        hidden_coin = GetConf().get_coins('theCoins', 'hidden_coin')
 
-        driver=Browser().open_browser()
+        driver = Browser().open_browser()
         bs=BasePage(driver)
         driver.get('https://wallet.trias.one/api/getCoinbase/')
-        #Gets the file name under the downloadfile folder
-        dir = os.path.abspath('..')
-        url = dir + "\\downloadfile\\"
-        files=GetFileName().getfilename(url)
-        #Calculate folder length
-        len1=len(os.listdir(url))
-        w=files[len1-2]
-        w1=w.split('--')[2]
-        #Check the private address
+        # Gets the file name under the downloadfile folder
+        mydir = os.path.abspath('..')
+        url = mydir + "\\downloadfile\\"
+        files = GetFileName().getfilename(url)
+        # Calculate folder length
+        len1 = len(os.listdir(url))
+        w = files[len1-2]
+        w1 = w.split('--')[2]
+        # Check the private address
         time.sleep(10)
         driver.find_element_by_name('user').send_keys(w1)
 

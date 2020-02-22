@@ -1,4 +1,4 @@
-#coding=utf-8
+# coding=utf-8
 import time
 from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.common.action_chains import ActionChains
@@ -7,10 +7,15 @@ from selenium.webdriver.support.select import Select
 from selenium.webdriver.common.keys import Keys
 from random import choice
 from common.logger import Logger
-
+'''
+@author
+@desc Define a page base class that all pages inherit and encapsulate common page manipulation methods into this class
+@date 2020/2/22
+'''
 logger = Logger().getlog()
+
+
 class BasePage(object):
-    '''Define a page base class that all pages inherit and encapsulate common page manipulation methods into this class.'''
     def __init__(self, driver):
         self.driver = driver
 

@@ -1,11 +1,11 @@
-#coding=utf-8
+# coding=utf-8
 import xlrd
+'''
+read the excel
+'''
+
 
 class ReadExcle(object):
-    '''
-    read the excel
-    '''
-
     def __init__(self, file, tag='True'):
         self.file = file
         self.tag = tag

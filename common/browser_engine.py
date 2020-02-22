@@ -1,7 +1,9 @@
-#coding=utf-8
+# coding=utf-8
 from selenium import webdriver
 import configparser
 import os
+
+
 class Browser(object):
     # Open the browser
     def open_browser(self):
@@ -29,9 +31,9 @@ class Browser(object):
             self.driver = webdriver.Chrome(chrome_options=options)
         elif browser == "IE":
             self.driver = webdriver.Ie()
-        #self.driver.set_window_size(1920, 1080)  # 分辨率
-        #self.driver.maximize_window()
-        #self.driver.get(url)
+        # self.driver.set_window_size(1920, 1080)  # 分辨率
+        # self.driver.maximize_window()
+        # self.driver.get(url)
         return self.driver
 
         # Open url site

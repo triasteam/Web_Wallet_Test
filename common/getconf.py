@@ -1,9 +1,11 @@
-#coding=utf-8
+# coding=utf-8
 import configparser
 import os
 import codecs
-dir = os.path.abspath('..')
-url=dir + "\\config\\config.ini"
+mydir = os.path.abspath('..')
+url = mydir + "\\config\\config.ini"
+
+
 class GetConf():
     def __init__(self):
         fd = open(url)
@@ -19,7 +21,7 @@ class GetConf():
         self.config = configparser.ConfigParser()
         self.config.read(url)
 
-    #get config name theCoins
-    def get_coins(self,key,name):
-        value=self.config.get(key,name)
+    # get config name theCoins
+    def get_coins(self, key, name):
+        value=self.config.get(key, name)
         return value

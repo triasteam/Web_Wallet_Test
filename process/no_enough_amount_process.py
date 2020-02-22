@@ -1,4 +1,4 @@
-#coding=utf-8
+# coding=utf-8
 import unittest
 from case.creat_wallet import CreatWallet
 from case.get_coin import GetCoin
@@ -9,12 +9,16 @@ from case.no_enough_public_address_amount import NoEnoughPublicAddressAmount
 from case.no_enough_private_address_amount import NoEnoughPrivateAddressAmount
 from case.check_view_account_info import CheckViewAccountInfo
 import time,os,HTMLTestReportCN
+
+'''
+The process of insufficient balance
+'''
+
+
 class WebWalletProcess(unittest.TestCase):
-    '''
-    The process of insufficient balance
-    '''
     def setUp(self):
         pass
+
     def test_0creat_wallet(self):
         CreatWallet().creat_wallet()
         CreatWallet().creat_wallet()
@@ -47,8 +51,7 @@ if __name__ == '__main__':
     # Define a report store path
     filename = qian + 'report' + '\\' + now_time + 'result.html'
     fp = open(filename, 'wb')
-
-    testsuite=unittest.TestSuite()
+    testsuite = unittest.TestSuite()
     testsuite.addTest(WebWalletProcess('test_0creat_wallet'))
     testsuite.addTest(WebWalletProcess('test_1getcoin'))
     testsuite.addTest(WebWalletProcess('test_2check_view_account_info'))
@@ -56,14 +59,12 @@ if __name__ == '__main__':
     testsuite.addTest(WebWalletProcess('test_4no_enough_public_address_hidden_amount'))
     testsuite.addTest(WebWalletProcess('test_5no_enough_private_address_amount'))
     testsuite.addTest(WebWalletProcess('test_6no_enough_private_address_hidden_amount'))
-
-    runner=HTMLTestReportCN.HTMLTestRunner(
+    runner = HTMLTestReportCN.HTMLTestRunner(
 
         stream=fp,
         title=u'web wallet process,',
         description=u'case execution'
     )
-        # Run the test case
+    # Run the test case
     runner.run(testsuite)
-
     fp.close()
